@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.urls import path, include
 from users.views import login_view, logout_view, signup_view
+import users
 from django.shortcuts import redirect
 from django.shortcuts import render
 
@@ -28,8 +29,9 @@ def home_view(request):
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('users/', include('users.urls')),
+    path('users/', include('users.urls', namespace='users')),
     path('signup/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('payments/', include('payments.urls')),
 ]

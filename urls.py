@@ -7,7 +7,6 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
     path('users/', include('backend.users.urls')),
     path('payments/', include('backend.payments.urls')),
     path('expenses/', include('backend.expenses.urls')),

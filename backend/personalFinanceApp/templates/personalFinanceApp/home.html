@@ -2,6 +2,49 @@
 <html>
 <head>
     <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #e53935;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Personal Finance App</h1>
@@ -14,5 +57,8 @@
     {% else %}
         <p>Please <a href="{% url 'login' %}">login</a> to access your account.</p>
     {% endif %}
+
+    <a href="{% url 'make_payment' %}" class="btn btn-primary">Make a Payment</a>
+    <a href="{% url 'expenses' %}" class="btn btn-primary">View Expenses</a>
 </body>
 </html>
