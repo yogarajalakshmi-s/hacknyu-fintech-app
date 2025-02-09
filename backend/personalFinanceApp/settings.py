@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,8 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "personalFinanceApp",
     "users",
-    "expenses",
     "payments",
+    "expenses",
     "coupons",
 ]
 
@@ -130,4 +131,12 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Redirect users to login page if they are not authenticated
+LOGIN_URL = 'users:login'
 
+# Redirect after login
+LOGIN_REDIRECT_URL = 'home'  # This can be the dashboard or home page
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'personalFinanceApp.settings')
+
+AUTH_USER_MODEL = 'users.User'
